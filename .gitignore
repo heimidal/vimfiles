@@ -1,0 +1,10 @@
+.DS_Store
+.idea
+*.tmproj
+.project
+.settings
+.svn
+*.swp
+.livereload
+.VimballRecord
+.netrwhist
