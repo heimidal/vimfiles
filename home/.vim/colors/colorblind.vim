@@ -10,22 +10,22 @@ endif
 let g:colors_name = "colorblind"
 
 if has("gui_running")
-    hi Normal         guifg=#ffffff guibg=#000000 gui=NONE
-    hi Cursor         guifg=NONE guibg=#555555 gui=NONE
-    hi Visual         guifg=NONE guibg=#283c78 gui=NONE
-    hi CursorLine     guifg=NONE guibg=#1a1a1a gui=NONE
-    hi CursorColumn   guifg=NONE guibg=#1a1a1a gui=NONE
-    hi LineNr         guifg=#808080 guibg=#000000 gui=NONE
-    hi VertSplit      guifg=#303030 guibg=#303030 gui=NONE
-    hi MatchParen     guifg=#ff0000 guibg=NONE gui=NONE
-    hi StatusLine     guifg=#ffffff guibg=#303030 gui=bold
-    hi StatusLineNC   guifg=#ffffff guibg=#303030 gui=NONE
-    hi Pmenu          guifg=#000000 guibg=#cccccc gui=NONE
-    hi PmenuSel       guifg=#ffffff guibg=#0080ff gui=NONE
-    hi IncSearch      guifg=NONE guibg=#324454 gui=NONE
-    hi Search         guifg=NONE guibg=#324454 gui=NONE
-    hi Directory      guifg=#96cdff guibg=NONE gui=NONE
-    hi Folded         guifg=#782dbd guibg=NONE gui=NONE
+    hi Normal                         guifg=#ffffff guibg=#000000 gui=NONE
+    hi Cursor                         guifg=NONE guibg=#ff00ff gui=NONE
+    hi Visual                         guifg=NONE guibg=#283c78 gui=NONE
+    hi CursorLine                     guifg=NONE guibg=#1a1a1a gui=NONE
+    hi CursorColumn                   guifg=NONE guibg=#1a1a1a gui=NONE
+    hi LineNr                         guifg=#808080 guibg=#000000 gui=NONE
+    hi VertSplit                      guifg=#303030 guibg=#303030 gui=NONE
+    hi MatchParen                     guifg=#ff0000 guibg=NONE gui=NONE
+    hi StatusLine                     guifg=#ffffff guibg=#303030 gui=bold
+    hi StatusLineNC                   guifg=#ffffff guibg=#303030 gui=NONE
+    hi Pmenu                          guifg=#000000 guibg=#cccccc gui=NONE
+    hi PmenuSel                       guifg=#ffffff guibg=#0080ff gui=NONE
+    hi IncSearch                      guifg=NONE guibg=#324454 gui=NONE
+    hi Search                         guifg=NONE guibg=#324454 gui=NONE
+    hi Directory                      guifg=#96cdff guibg=NONE gui=NONE
+    hi Folded                         guifg=#782dbd guibg=NONE gui=NONE
     
     hi Boolean                        guifg=#ff6400 guibg=NONE gui=NONE
     hi Character                      guifg=#ff6400 guibg=NONE gui=NONE
@@ -88,6 +88,15 @@ if has("gui_running")
     hi htmlArg                        guifg=#ff6400 guibg=NONE gui=NONE
     hi htmlSpecialChar                guifg=#ff0000 guibg=NONE gui=NONE
     
+    hi cssURL                         guifg=#c0c0c0 guibg=NONE gui=underline
+    hi cssFunctionName                guifg=NONE guibg=NONE gui=NONE
+    hi cssColor                       guifg=#ff6400 guibg=NONE gui=NONE
+    hi cssPseudoClassId               guifg=#ff9600 guibg=NONE gui=NONE
+    hi cssClassName                   guifg=#ff9600 guibg=NONE gui=NONE
+    hi cssValueLength                 guifg=#c0c0c0 guibg=NONE gui=NONE
+    hi cssCommonAttr                  guifg=NONE guibg=NONE gui=NONE
+    hi cssBraces                      guifg=#ffffff guibg=NONE gui=NONE
+    
     hi javaScriptFunction             guifg=#ff9600 guibg=NONE gui=NONE
     hi javaScriptRailsFunction        guifg=#ff9600 guibg=NONE gui=NONE
     hi javascriptNumber               guifg=#ff6400 guibg=NONE gui=NONE
@@ -100,36 +109,40 @@ if has("gui_running")
     hi javaScriptBraces               guifg=NONE guibg=NONE gui=NONE
     hi javaScriptHtmlEvents           guifg=#0080ff guibg=NONE gui=NONE
     
+    hi markdownH1                     guifg=#ff00ff guibg=NONE gui=NONE
+    hi markdownH2                     guifg=#ff6400 guibg=NONE gui=NONE
+    hi markdownH3                     guifg=#ff9600 guibg=NONE gui=NONE
+    hi markdownH4                     guifg=#ffcd00 guibg=NONE gui=NONE
+    hi markdownH5                     guifg=#ffcd00 guibg=NONE gui=NONE
+    hi markdownH6                     guifg=#ffcd00 guibg=NONE gui=NONE
+    hi markdownLinkText               guifg=#96ff32 guibg=NONE gui=NONE
+    hi markdownId                     guifg=#ff80ff guibg=NONE gui=NONE
+    hi markdownIdDeclaration          guifg=#ff80ff guibg=NONE gui=NONE
+    hi markdownCodeDelimiter          guifg=#ff0000 guibg=NONE gui=NONE
+    
     hi yamlKey                        guifg=#96cdff guibg=NONE gui=NONE
     hi yamlAnchor                     guifg=#c0c0c0 guibg=NONE gui=NONE
     hi yamlAlias                      guifg=#c0c0c0 guibg=NONE gui=NONE
     hi yamlDocumentHeader             guifg=#96ff32 guibg=NONE gui=italic
-    hi cssURL                         guifg=#c0c0c0 guibg=NONE gui=underline
-    hi cssFunctionName                guifg=NONE guibg=NONE gui=NONE
-    hi cssColor                       guifg=#ff6400 guibg=NONE gui=NONE
-    hi cssPseudoClassId               guifg=#ff9600 guibg=NONE gui=NONE
-    hi cssClassName                   guifg=#ff9600 guibg=NONE gui=NONE
-    hi cssValueLength                 guifg=#c0c0c0 guibg=NONE gui=NONE
-    hi cssCommonAttr                  guifg=NONE guibg=NONE gui=NONE
-    hi cssBraces                      guifg=#ffffff guibg=NONE gui=NONE
+    
 else
     set t_Co=256
-    highlight Normal ctermfg=White ctermbg=Black 
-    highlight Cursor ctermfg=Black ctermbg=Yellow 
-    highlight Keyword ctermfg=202 
-    highlight Define ctermfg=202 
-    highlight Comment ctermfg=98
-    highlight Type ctermfg=White 
-    highlight rubySymbol ctermfg=66 
-    highlight Identifier ctermfg=White 
-    highlight rubyStringDelimiter ctermfg=82 
-    highlight rubyInterpolation ctermfg=White 
-    highlight rubyPseudoVariable ctermfg=66 
-    highlight Constant ctermfg=228 
-    highlight Function ctermfg=220 
-    highlight Include ctermfg=220 
-    highlight Statement ctermfg=202
-    highlight String ctermfg=82 
-    highlight Search ctermbg=White 
-    highlight CursorLine cterm=NONE ctermbg=235
+    hi Normal ctermfg=White ctermbg=Black 
+    hi Cursor ctermfg=Black ctermbg=Yellow 
+    hi Keyword ctermfg=202 
+    hi Define ctermfg=202 
+    hi Comment ctermfg=98
+    hi Type ctermfg=White 
+    hi rubySymbol ctermfg=66 
+    hi Identifier ctermfg=White 
+    hi rubyStringDelimiter ctermfg=82 
+    hi rubyInterpolation ctermfg=White 
+    hi rubyPseudoVariable ctermfg=66 
+    hi Constant ctermfg=228 
+    hi Function ctermfg=220 
+    hi Include ctermfg=220 
+    hi Statement ctermfg=202
+    hi String ctermfg=82 
+    hi Search ctermbg=White 
+    hi CursorLine cterm=NONE ctermbg=235
 endif
