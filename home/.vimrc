@@ -1,3 +1,4 @@
+
 " Disable vi compatibility
 set nocompatible
 
@@ -39,7 +40,14 @@ set smarttab
 set expandtab
 set nowrap
 set list
-set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\ ,eol:¬,trail:·
+set foldlevelstart=0
+set foldmethod=marker
+
+" Remember global variables across vim sessions
+set viminfo^=!
+
+" -----------------------------------------------------------------------------
 
 " Color scheme (terminal - change below for gui)
 syntax on
@@ -68,11 +76,12 @@ inoremap <F1> <ESC>:set invfullscreen<CR>
 nnoremap <F1> :set invfullscreen<CR>
 vnoremap <F1> :set invfullscreen<CR>
 
+" modes
 inoremap <Esc> <nop>
 inoremap jj <ESC>
+inoremap jk <Esc>
 
 " Folding
-set foldlevelstart=0
 nnoremap <Space> za
 vnoremap <Space> za
 
@@ -109,7 +118,9 @@ au BufNewFile,BufRead *.m*down set filetype=markdown
 map <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:let @/=''<CR>
 
 " Clean whitespace
-map <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+" Command to collapse all multi-line occurrences of whitespace into one line.
+map <leader>CN :%s/^\n\+/\r//<cr>:let @/=''<CR>
+map <leader>CW :%s/\s\+$//<cr>:let @/=''<CR>
 
 " Ack
 map <leader>a :Ack 
@@ -131,11 +142,8 @@ au BufNewFile,BufRead *.js set errorformat=%-P-----\ FILE\ \ :\ \ %f\ -----,Line
 " HTML tag closing
 inoremap <C-_> <Space><BS><Esc>:call InsertCloseTag()<cr>a
 
-" Rainbows
-nmap <leader>R :RainbowParenthesesToggle<CR>
-
 " Edit .vimrc
-nmap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
+nmap <leader>evm <C-w><C-v><C-l>:e $MYVIMRC<cr>
 au! BufWritePost .vimrc source %                  " reload on save
 
 let NERDTreeIgnore=['.DS_Store']
