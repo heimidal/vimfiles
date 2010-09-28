@@ -126,6 +126,9 @@ map <leader>CW :%s/\s\+$//<cr>:let @/=''<CR>
 " Ack
 map <leader>a :Ack
 
+" toggles the taglist window
+nnoremap <silent> <F8> :TlistToggle<CR>
+
 " Make NERDCommenter add a space before/after comments
 let NERDSpaceDelims=1
 
@@ -184,12 +187,12 @@ set statusline+=%r                                  "read only flag
 set statusline+=%y                                  "filetype
 
 " From syntastic plugin
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
 " From Fugitive plugin
-" set statusline+=%{fugitive#statusline()}
+set statusline+=%{fugitive#statusline()}
 
 " rvm.vim
 set statusline+=%{rvm#statusline()}

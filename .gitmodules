@@ -40,3 +40,48 @@
 [submodule "home/.vim/bundle/html-autoclose"]
 	path = home/.vim/bundle/html-autoclose
 	url = http://github.com/vim-scripts/HTML-AutoCloseTag.git
+[submodule "home/.vim/bundle/jade.vim"]
+	path = home/.vim/bundle/jade.vim
+	url = http://github.com/vim-scripts/jade.vim.git
+[submodule "home/.vim/bundle/bufkill.vim"]
+	path = home/.vim/bundle/bufkill.vim
+	url = http://github.com/vim-scripts/bufkill.vim.git
+[submodule "home/.vim/bundle/vim-supertab"]
+	path = home/.vim/bundle/vim-supertab
+	url = http://github.com/tsaleh/vim-supertab.git
+[submodule "home/.vim/bundle/Command-T"]
+	path = home/.vim/bundle/Command-T
+	url = http://github.com/vim-scripts/Command-T.git
+[submodule "home/.vim/bundle/vim-cucumber"]
+	path = home/.vim/bundle/vim-cucumber
+	url = http://github.com/tpope/vim-cucumber.git
+[submodule "home/.vim/bundle/vim-fugitive"]
+	path = home/.vim/bundle/vim-fugitive
+	url = http://github.com/tpope/vim-fugitive.git
+[submodule "home/.vim/bundle/vim-ruby"]
+	path = home/.vim/bundle/vim-ruby
+	url = http://github.com/vim-ruby/vim-ruby.git
+[submodule "home/.vim/bundle/vim-rails"]
+	path = home/.vim/bundle/vim-rails
+	url = http://github.com/tpope/vim-rails.git
+[submodule "home/.vim/bundle/gist-vim"]
+	path = home/.vim/bundle/gist-vim
+	url = http://github.com/mattn/gist-vim.git
+[submodule "home/.vim/bundle/specky"]
+	path = home/.vim/bundle/specky
+	url = http://github.com/vim-scripts/Specky.git
+[submodule "home/.vim/bundle/camelcasemotion"]
+	path = home/.vim/bundle/camelcasemotion
+	url = http://github.com/vim-scripts/camelcasemotion.git
+[submodule "home/.vim/bundle/taglist.vim"]
+	path = home/.vim/bundle/taglist.vim
+	url = http://github.com/vim-scripts/taglist.vim.git
+[submodule "home/.vim/bundle/tailminusf"]
+	path = home/.vim/bundle/tailminusf
+	url = http://github.com/vim-scripts/TailMinusF.git
+[submodule "home/.vim/bundle/tabular"]
+	path = home/.vim/bundle/tabular
+	url = http://github.com/godlygeek/tabular.git
+[submodule "home/.vim/bundle/syntastic"]
+	path = home/.vim/bundle/syntastic
+	url = http://github.com/scrooloose/syntastic.git
