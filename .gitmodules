@@ -49,9 +49,6 @@
 [submodule "home/.vim/bundle/vim-supertab"]
 	path = home/.vim/bundle/vim-supertab
 	url = http://github.com/tsaleh/vim-supertab.git
-[submodule "home/.vim/bundle/Command-T"]
-	path = home/.vim/bundle/Command-T
-	url = http://github.com/vim-scripts/Command-T.git
 [submodule "home/.vim/bundle/vim-cucumber"]
 	path = home/.vim/bundle/vim-cucumber
 	url = http://github.com/tpope/vim-cucumber.git
