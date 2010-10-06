@@ -1,4 +1,3 @@
-
 " Disable vi compatibility
 set nocompatible
 
@@ -8,7 +7,7 @@ call pathogen#helptags()
 
 filetype on
 filetype plugin indent on
-set ofu=syntaxcomplete#Complete
+" set ofu=syntaxcomplete#Complete
 
 " Security
 set modelines=0
@@ -135,19 +134,27 @@ let NERDSpaceDelims=1
 " Yankring
 nnoremap <silent> <F3> :YRShow<cr>
 nnoremap <silent> <leader>y :YRShow<cr>
+let g:yankring_history_dir=$HOME.'/.vim/tmp/yankring/'
 
 " Formatting, TextMate-style
 map <leader>q gqip
 
+let g:SuperTabMappingForward = '<c-space>'
+let g:SuperTabMappingBackward = '<s-c-space>'
+
+
 " Google's JSLint
 " au BufNewFile,BufRead *.js set makeprg=gjslint\ %
 " au BufNewFile,BufRead *.js set errorformat=%-P-----\ FILE\ \ :\ \ %f\ -----,Line\ %l\\,\ E:%n:\ %m,%-Q,%-GFound\ %s,%-GSome\ %s,%-Gfixjsstyle%s,%-Gscript\ can\ %s,%-G
+
 
 " Edit .vimrc
 nmap <leader>evm <C-w><C-v><C-l>:e $MYVIMRC<cr>
 au! BufWritePost .vimrc source %                  " reload on save
 
 let NERDTreeIgnore=['.DS_Store']
+
+autocmd BufRead,BufNewFile   *.md setlocal wrap linebreak
 
 "Add the variable with the name a:varName to the statusline. Highlight it as
 "'error' unless its value is in a:goodValues (a comma separated string)
@@ -230,7 +237,7 @@ endfunction
 
 "recalculate the trailing whitespace warning when idle, and after saving
 autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
-
+'
 "return '[\s]' if trailing white space is detected
 "return '' otherwise
 function! StatuslineTrailingSpaceWarning()
@@ -250,7 +257,7 @@ if has('gui_running')
     set guifont=Monaco:h12
     colorscheme colorblind
     set background=dark
-    set spell
+    " set spell
     set go-=T
     set go-=l
     set go-=L
@@ -274,4 +281,116 @@ if has('title') && (has('gui_running') || &title)
     set titlestring+=\ -\ %{v:progname}                              " program name
     set titlestring+=\ -\ %{substitute(getcwd(),\ $HOME,\ '~',\ '')} " working directory
 endif
+
+
+
+
+" Settings for MarkdownPreview bundle
+let g:MarkdownPreviewTMP=$HOME.'/.vim/tmp/markdown/'
+let g:MarkdownPreviewDefaultStyles=$HOME.'/Sites/themes/css-defaults/'
+let g:MarkdownPreviewUserStyles=$HOME.'/Sites/themes/css-markdown/'
+let g:MarkdownPreviewDefaultTheme = 'github'
+
+" kill out those nasty markdown tmp files.
+" TODO This needs to check if there are files present before cleaning out..
+silent execute '!rm -r '.MarkdownPreviewTMP.'*'
+
+" Needs to be moved to a plugin or a snippet
+function! MarkdownPreview()
+ruby << EOF
+  require 'rubygems'
+  require 'bluecloth'
+
+  VIM::Buffer.current.name.nil? ? (name = 'Untitled.md') : (name = Vim::Buffer.current.name)
+  file_name = name.gsub(/.(md|mkd|markdown)$/, '.html')
+
+  if file_name == VIM::Buffer.current.name
+    VIM::message('This file type is not supported for previewing markdown files')
+    exit
+  end
+
+  tmp_file = VIM::evaluate('g:MarkdownPreviewTMP') +  File.basename(file_name)
+  tmp_exists = File.exists?(tmp_file)
+  default_styles = Dir.glob(File.join(VIM::evaluate('g:MarkdownPreviewDefaultStyles'), '*'))
+  user_styles = Dir.glob(File.join(VIM::evaluate('g:MarkdownPreviewUserStyles'), '*'))
+  css_namespace = VIM::evaluate('g:MarkdownPreviewDefaultTheme')
+  t = ""
+
+  def set_stylesheets(style_dir)
+    style_refs = ''
+    style_dir.each do |style_ref|
+      if File.exists?(style_ref + '/style.css')
+        style_refs += '<link href="' + style_ref + '/style.css' + '" rel="stylesheet" media="screen, projection" />'
+      end
+    end
+    return style_refs
+  end
+
+  def set_options(style_dir, ns)
+    style_names = ''
+    style_dir.each do |style_name|
+      if File.exists?( style_name + '/style.css')
+        s_name = File.basename(style_name)
+        if s_name == ns
+          style_names += '<option value="' + s_name + '" selected="true">' + s_name + '</option>'
+        else
+          style_names += '<option value="' + s_name + '">' + s_name + '</option>'
+        end
+      end
+    end
+    return style_names
+  end
+
+  VIM::Buffer.current.count.times {|i| t += "#{VIM::Buffer.current[i + 1]}\n"}
+
+  layout = <<-LAYOUT
+  <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8" />
+        <style>
+          * { margin: 0; padding: 0; }
+        </style>
+        #{set_stylesheets(default_styles)}
+        #{set_stylesheets(user_styles)}
+        <title>:: #{File.basename(name)} ::</title>
+      </head>
+      <body id="theme" class="#{css_namespace}">
+        <div class="header">
+          <h2>#{File.basename(name)}</h2>
+          <select onchange="selectTheme(event);">
+            <optgroup label="Default Themes">
+              #{set_options(default_styles, css_namespace)}
+            </optgroup>
+            <optgroup label="User Themes">
+              #{set_options(user_styles, css_namespace)}
+            </optgroup>
+          </select>
+        </div>
+        <div class="wikistyle">
+          #{BlueCloth.new(t).to_html}
+        </div>
+        <script language='javascript' type='text/javascript'>
+          var themeID = document.getElementById('theme');
+          function selectTheme(e) {
+            var theme = e.target.value;
+            themeID.className = e.target.value;
+          }
+        </script>
+      </body>
+    </html>
+    LAYOUT
+
+  File.open(tmp_file, 'w') do |f|
+    f.write(layout)
+  end
+
+  if !tmp_exists
+    system("open #{tmp_file}")
+  end
+
+EOF
+endfunction
+:command! MDP :call MarkdownPreview()
+au! BufWritePost *.md :MDP
 
