@@ -138,8 +138,8 @@ let g:yankring_history_dir=$HOME.'/.vim/tmp/yankring/'
 " Formatting, TextMate-style
 map <leader>q gqip
 
-let g:SuperTabMappingForward = '<c-space>'
-let g:SuperTabMappingBackward = '<s-c-space>'
+" let g:SuperTabMappingForward = '<c-space>'
+" let g:SuperTabMappingBackward = '<s-c-space>'
 
 
 " Google's JSLint
@@ -271,7 +271,6 @@ if has('gui_running')
     if has("gui_macvim")
         set transparency=15
         macmenu &File.New\ Tab key=<nop>
-        " map <leader>t <Plug>PeepOpen
     end
 
     highlight SpellBad term=underline gui=undercurl guisp=Orange

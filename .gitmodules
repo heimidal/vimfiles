@@ -7,9 +7,6 @@
 [submodule "home/.vim/bundle/ack.vim"]
 	path = home/.vim/bundle/ack.vim
 	url = http://github.com/mileszs/ack.vim.git
-[submodule "home/.vim/bundle/snipmate.vim"]
-	path = home/.vim/bundle/snipmate.vim
-	url = http://github.com/msanders/snipmate.vim.git
 [submodule "home/.vim/bundle/yankring"]
 	path = home/.vim/bundle/yankring
 	url = http://github.com/chrismetcalf/vim-yankring.git
@@ -85,3 +82,6 @@
 [submodule "home/.vim/bundle/markdown-preview.vim"]
 	path = home/.vim/bundle/markdown-preview.vim
 	url = git://github.com/mkitt/markdown-preview.vim.git
+[submodule "home/.vim/bundle/snipmate.vim"]
+	path = home/.vim/bundle/snipmate.vim
+	url = git://github.com/mkitt/snipmate.vim.git
