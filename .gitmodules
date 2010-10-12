@@ -85,3 +85,6 @@
 [submodule "home/.vim/bundle/snipmate.vim"]
 	path = home/.vim/bundle/snipmate.vim
 	url = git://github.com/mkitt/snipmate.vim.git
+[submodule "home/.vim/bundle/browser-refresh.vim"]
+	path = home/.vim/bundle/browser-refresh.vim
+	url = git://github.com/mkitt/browser-refresh.vim.git

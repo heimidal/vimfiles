@@ -132,20 +132,18 @@ let NERDSpaceDelims=1
 
 " Yankring
 nnoremap <silent> <F3> :YRShow<cr>
-nnoremap <silent> <leader>y :YRShow<cr>
 let g:yankring_history_dir=$HOME.'/.vim/tmp/yankring/'
 
-" Formatting, TextMate-style
-map <leader>q gqip
-
-" let g:SuperTabMappingForward = '<c-space>'
-" let g:SuperTabMappingBackward = '<s-c-space>'
 
 
 " Google's JSLint
 " au BufNewFile,BufRead *.js set makeprg=gjslint\ %
 " au BufNewFile,BufRead *.js set errorformat=%-P-----\ FILE\ \ :\ \ %f\ -----,Line\ %l\\,\ E:%n:\ %m,%-Q,%-GFound\ %s,%-GSome\ %s,%-Gfixjsstyle%s,%-Gscript\ can\ %s,%-G
 
+" function! Nodelint()
+  " !node Sites/nodelint/nodelint % --config Sites/nodelint/config.js --reporter Sites/nodelint/examples/reporters/summarize.js
+" endfunction
+" :command! NL :call Nodelint()
 
 " Edit .vimrc
 nmap <leader>evm <C-w><C-v><C-l>:e $MYVIMRC<cr>
@@ -153,7 +151,8 @@ au! BufWritePost .vimrc source %                  " reload on save
 
 let NERDTreeIgnore=['.DS_Store']
 
-autocmd BufRead,BufNewFile   *.md setlocal wrap linebreak
+autocmd BufRead,BufNewFile *.md,*.markdown,*.mkd,*.txt setlocal wrap linebreak
+" set textwidth=79
 
 "Add the variable with the name a:varName to the statusline. Highlight it as
 "'error' unless its value is in a:goodValues (a comma separated string)
@@ -186,8 +185,8 @@ endfunction
 " Fancy statusline.
 set statusline=%t                                   "tail of the filename
 set statusline+=%m                                  "modified flag
-" call AddStatuslineFlag('&ff', 'unix')               "fileformat
-" call AddStatuslineFlag('&fenc', 'utf-8')            "file encoding
+" call AddStatuslineFlag('&ff', 'unix')             "fileformat
+" call AddStatuslineFlag('&fenc', 'utf-8')          "file encoding
 set statusline+=%h                                  "help file flag
 set statusline+=%r                                  "read only flag
 set statusline+=%y                                  "filetype
@@ -250,12 +249,6 @@ function! StatuslineTrailingSpaceWarning()
     return b:statusline_trailing_space_warning
 endfunction
 
-function! RefreshRunningBrowser()
-  silent :!ps -xc|grep -sq Chrome && osascript -e 'tell app "Google Chrome"' -e 'activate' -e 'tell app "System Events" to keystroke "r" using {command down}' -e 'end tell'
-  silent :!ps -xc|grep -sq MacVim && osascript -e 'tell app "MacVim"' -e 'activate' -e 'end tell'
-endfunction
-:command! RR :call RefreshRunningBrowser()
-
 
 if has('gui_running')
     set guifont=Monaco:h12
@@ -288,11 +281,48 @@ endif
 " Settings for MarkdownPreview bundle
 let g:MarkdownPreviewUserStyles=$HOME.'/Sites/themes/css-markdown/'
 
-" Move this up after the plugins load.. 
+" Move this up after the plugins load..
 au! BufWritePost *.md call HandleBufWritePostMarkdown()
+
 
 function! HandleBufWritePostMarkdown()
   :MDP
-  :RR
 endfunction
+
+" -----------------------------------------------------------------------------
+" Extract this into a plugin
+
+let g:RefreshRunningBrowserDefault = 'chrome'
+
+
+if !exists("g:RefreshRunningBrowserDefault")
+  let g:RefreshRunningBrowserDefault = 'all'
+endif
+
+if !exists("g:RefreshRunningBrowserReturnFocus")
+  let g:RefreshRunningBrowserReturnFocus = 1
+endif
+
+
+function! RefreshRunningBrowser()
+
+  if (g:RefreshRunningBrowserDefault == 'chrome' || g:RefreshRunningBrowserDefault == 'all')
+    silent :!ps -xc|grep -sq Chrome && osascript -e 'tell app "Google Chrome"' -e 'activate' -e 'tell app "System Events" to keystroke "r" using {command down}' -e 'end tell'
+  endif
+
+  if (g:RefreshRunningBrowserDefault == 'safari' || g:RefreshRunningBrowserDefault == 'all')
+    silent :!ps -xc|grep -sq Safari && osascript -e 'tell app "Safari"' -e 'activate' -e 'tell app "System Events" to keystroke "r" using {command down}' -e 'end tell'
+  endif
+
+  if (g:RefreshRunningBrowserDefault == 'firefox' || g:RefreshRunningBrowserDefault == 'all')
+    silent :!ps -xc|grep -sqi firefox && osascript -e 'tell app "Firefox"' -e 'activate' -e 'tell app "System Events" to keystroke "r" using {command down}' -e 'end tell'
+  endif
+
+  if ((g:RefreshRunningBrowserReturnFocus == 1) && has('gui_macvim'))
+    silent :!ps -xc|grep -sq MacVim && osascript -e 'tell app "MacVim"' -e 'activate' -e 'end tell'
+  endif
+
+endfunction
+:command! RRB :call RefreshRunningBrowser()
+map <silent><leader>r :RRB<CR>
 
