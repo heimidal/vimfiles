@@ -294,35 +294,5 @@ endfunction
 
 let g:RefreshRunningBrowserDefault = 'chrome'
 
-
-if !exists("g:RefreshRunningBrowserDefault")
-  let g:RefreshRunningBrowserDefault = 'all'
-endif
-
-if !exists("g:RefreshRunningBrowserReturnFocus")
-  let g:RefreshRunningBrowserReturnFocus = 1
-endif
-
-
-function! RefreshRunningBrowser()
-
-  if (g:RefreshRunningBrowserDefault == 'chrome' || g:RefreshRunningBrowserDefault == 'all')
-    silent :!ps -xc|grep -sq Chrome && osascript -e 'tell app "Google Chrome"' -e 'activate' -e 'tell app "System Events" to keystroke "r" using {command down}' -e 'end tell'
-  endif
-
-  if (g:RefreshRunningBrowserDefault == 'safari' || g:RefreshRunningBrowserDefault == 'all')
-    silent :!ps -xc|grep -sq Safari && osascript -e 'tell app "Safari"' -e 'activate' -e 'tell app "System Events" to keystroke "r" using {command down}' -e 'end tell'
-  endif
-
-  if (g:RefreshRunningBrowserDefault == 'firefox' || g:RefreshRunningBrowserDefault == 'all')
-    silent :!ps -xc|grep -sqi firefox && osascript -e 'tell app "Firefox"' -e 'activate' -e 'tell app "System Events" to keystroke "r" using {command down}' -e 'end tell'
-  endif
-
-  if ((g:RefreshRunningBrowserReturnFocus == 1) && has('gui_macvim'))
-    silent :!ps -xc|grep -sq MacVim && osascript -e 'tell app "MacVim"' -e 'activate' -e 'end tell'
-  endif
-
-endfunction
-:command! RRB :call RefreshRunningBrowser()
 map <silent><leader>r :RRB<CR>
 
