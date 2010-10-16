@@ -165,6 +165,8 @@ function! AddStatuslineFlag(varName, goodValues)
   set statusline+=]
 endfunction
 
+
+
 "returns a:value or ''
 "
 "a:goodValues is a comma separated string of values that shouldn't be
@@ -195,6 +197,8 @@ set statusline+=%y                                  "filetype
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_loc_list=1
 
 " From Fugitive plugin
 set statusline+=%{fugitive#statusline()}
@@ -289,10 +293,12 @@ function! HandleBufWritePostMarkdown()
   :MDP
 endfunction
 
+
 " -----------------------------------------------------------------------------
 " Extract this into a plugin
 
 let g:RefreshRunningBrowserDefault = 'chrome'
+let g:NodelintConfig = $HOME.'/.vim/syntax_checkers/compilers/nodelint-config/nodelint-config.js'
 
 map <silent><leader>r :RRB<CR>
 

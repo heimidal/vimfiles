@@ -64,7 +64,7 @@ hi StorageClass                   guifg=#96CDFF   guibg=NONE  gui=NONE        ct
 hi String                         guifg=#96FF32   guibg=NONE  gui=italic      ctermfg=Green    ctermbg=NONE   cterm=bold
 hi Tag                            guifg=#96CDFF   guibg=NONE  gui=NONE        ctermfg=Blue     ctermbg=NONE   cterm=bold
 hi Title                          guifg=#FFFFFF   guibg=NONE  gui=bold        ctermfg=White    ctermbg=NONE   cterm=NONE
-hi Todo                           guifg=#782DBD   guibg=NONE  gui=inverse     ctermfg=Cyan     ctermbg=NONE   cterm=bold
+hi Todo                           guifg=#FF0000   guibg=NONE  gui=inverse     ctermfg=Red      ctermbg=NONE   cterm=bold
 hi Type                           guifg=#FF80FF   guibg=NONE  gui=NONE        ctermfg=Magenta  ctermbg=NONE   cterm=bold
 hi Delimiter                      guifg=#FF9600   guibg=NONE  gui=NONE        ctermfg=Brown    ctermbg=NONE   cterm=NONE
 hi Operator                       guifg=NONE      guibg=NONE  gui=NONE        ctermfg=NONE     ctermbg=NONE   cterm=NONE
