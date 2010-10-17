@@ -94,3 +94,6 @@
 [submodule "home/.vim/syntax_checkers/compilers/nodelint-config"]
 	path = home/.vim/syntax_checkers/compilers/nodelint-config
 	url = git://github.com/mkitt/nodelint-config.git
+[submodule "home/.vim/bundle/vim-unimpaired"]
+	path = home/.vim/bundle/vim-unimpaired
+	url = http://github.com/tpope/vim-unimpaired.git
