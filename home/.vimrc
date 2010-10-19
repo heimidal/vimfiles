@@ -75,7 +75,7 @@ colorscheme colorblind
 
 " GUI specific settings
 if has('gui_running')
-  set guifont=Monaco:h12
+  set guifont=MesloLGM:h12
   colorscheme colorblind
   set background=dark
   set go-=T
@@ -112,6 +112,7 @@ let g:syntastic_auto_loc_list=1
 let g:MarkdownPreviewUserStyles=$HOME.'/Sites/themes/css-markdown/'
 let g:RefreshRunningBrowserDefault = 'chrome'
 let g:NodelintConfig = $HOME.'/.vim/syntax_checkers/compilers/nodelint-config/nodelint-config.js'
+let g:snips_author = 'Matthew Kitt'
 
 
 " Key mapping
@@ -205,11 +206,13 @@ au! BufWritePost .vimrc source %
 " Set formatting on specific files
 autocmd BufRead,BufNewFile *.md,*.markdown,*.mkd,*.txt setlocal wrap linebreak nolist spell
 
-
 " Convert markdown to html on save
 au! BufWritePost *.md,*.markdown,*.mkd :MDP
 
 " File type settings on load
 au BufRead,BufNewFile *.scss set filetype=scss
 au BufNewFile,BufRead *.m*down set filetype=markdown
+
+" Enable autosave
+au FocusLost * :wa
 
