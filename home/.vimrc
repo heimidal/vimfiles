@@ -124,7 +124,7 @@ nnoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 nnoremap ; :
-inoremap <Esc> <nop>
+" inoremap <Esc> <nop>
 inoremap jj <ESC>
 inoremap jk <Esc>
 
@@ -157,6 +157,7 @@ nnoremap <silent> <F8> :TlistToggle<CR>
 " Bubble single lines
 nmap <C-Up> [e
 nmap <C-Down> ]e
+
 " Bubble multiple lines
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
@@ -208,6 +209,9 @@ autocmd BufRead,BufNewFile *.md,*.markdown,*.mkd,*.txt setlocal wrap linebreak n
 
 " Convert markdown to html on save
 au! BufWritePost *.md,*.markdown,*.mkd :MDP
+
+" Reload all snippets when creating new ones.
+au! BufWritePost *.snippets call ReloadAllSnippets()
 
 " File type settings on load
 au BufRead,BufNewFile *.scss set filetype=scss
