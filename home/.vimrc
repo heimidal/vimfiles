@@ -44,7 +44,7 @@ set listchars=tab:▸\ ,eol:¬,trail:·
 set foldlevelstart=0
 set foldmethod=marker
 set formatoptions=tcq
-set viminfo^=!                  " Remember global variables across vim sessions
+" set viminfo^=!                  " Remember global variables across vim sessions
 
 " Backups
 set history=1000
@@ -87,7 +87,6 @@ if has('gui_running')
     set transparency=15
     macmenu &File.New\ Tab key=<nop>
   end
-  highlight SpellBad term=underline gui=undercurl guisp=Orange
 endif
 
 " Set the title bar to something meaningful
