@@ -113,7 +113,6 @@ let g:RefreshRunningBrowserDefault = 'chrome'
 let g:NodelintConfig = $HOME.'/.vim/syntax_checkers/compilers/nodelint-config/nodelint-config.js'
 let g:snips_author = 'Matthew Kitt'
 
-
 " Key mapping
 " -----------------------------------------------------------------------------
 nnoremap <up> <nop>
@@ -181,11 +180,14 @@ map <leader><space> :let @/=''<cr>
 " Sort CSS
 map <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:let @/=''<cr>
 
-" Collapse all multi-line occurrences of whitespace into one line.
+" Collapse all multi-line occurrences of whitespace into one line
 map <leader>CN :%s/^\n\+/\r//<cr>:let @/=''<cr>
 
 " Clean whitespace
 map <leader>CW :%s/\s\+$//<cr>:let @/=''<cr>
+
+" Retab My Authority.
+map <silent><leader>CT :retab<cr>
 
 " Open current buffer in a new split
 map <leader>s <C-w>v<C-w>l
