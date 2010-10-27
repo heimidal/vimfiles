@@ -208,8 +208,6 @@ au! BufWritePost .vimrc source %
 " Set formatting on specific files
 autocmd BufRead,BufNewFile *.md,*.markdown,*.mkd,*.txt setlocal wrap linebreak nolist spell
 
-" Convert markdown to html on save
-au! BufWritePost *.md,*.markdown,*.mkd :MDP
 
 " Reload all snippets when creating new ones.
 au! BufWritePost *.snippets call ReloadAllSnippets()
@@ -217,6 +215,12 @@ au! BufWritePost *.snippets call ReloadAllSnippets()
 " File type settings on load
 au BufRead,BufNewFile *.scss set filetype=scss
 au BufNewFile,BufRead *.m*down set filetype=markdown
+
+" GUI Specific settings
+if has('gui_running')
+  " Convert markdown to html on save
+  au! BufWritePost *.md,*.markdown,*.mkd :MDP
+endif
 
 " Enable autosave
 au FocusLost * :wa
