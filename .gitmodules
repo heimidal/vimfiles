@@ -115,3 +115,6 @@
 [submodule "home/.vim/bundle/argtextobj.vim"]
 	path = home/.vim/bundle/argtextobj.vim
 	url = http://github.com/vim-scripts/argtextobj.vim.git
+[submodule "home/.vim/bundle/cocoa.vim"]
+	path = home/.vim/bundle/cocoa.vim
+	url = http://github.com/msanders/cocoa.vim.git
