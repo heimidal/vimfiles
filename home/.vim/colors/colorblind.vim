@@ -1,5 +1,4 @@
 " Vim color file
-" Converted from Textmate theme colorblind using Coloration v0.2.4 (http://github.com/sickill/coloration)
 
 hi clear
 set background=dark
@@ -32,8 +31,8 @@ hi CursorColumn                   guifg=NONE      guibg=#1A1A1A gui=NONE      ct
 hi LineNr                         guifg=#555555   guibg=NONE    gui=NONE      ctermfg=Gray     ctermbg=NONE   cterm=NONE
 hi VertSplit                      guifg=#000000   guibg=#333333 gui=NONE      ctermfg=Black    ctermbg=Gray   cterm=NONE
 hi MatchParen                     guifg=#FF0000   guibg=NONE    gui=NONE      ctermfg=Red      ctermbg=NONE   cterm=NONE
-hi StatusLine                     guifg=#FFFFFF   guibg=#0080FF gui=bold      ctermfg=White    ctermbg=Blue  cterm=NONE
-hi StatusLineNC                   guifg=#FFFFFF   guibg=#0080FF gui=NONE      ctermfg=White    ctermbg=Blue  cterm=NONE
+hi StatusLine                     guifg=#FFFFFF   guibg=#0080FF gui=bold      ctermfg=White    ctermbg=Blue   cterm=NONE
+hi StatusLineNC                   guifg=#FFFFFF   guibg=#0080FF gui=NONE      ctermfg=White    ctermbg=Blue   cterm=NONE
 hi Pmenu                          guifg=#000000   guibg=#999999 gui=NONE      ctermfg=Black    ctermbg=Grey   cterm=bold
 hi PmenuSel                       guifg=#FFFFFF   guibg=#0080ff gui=NONE      ctermfg=White    ctermbg=Blue   cterm=NONE
 hi IncSearch                      guifg=NONE      guibg=#1B2B66 gui=NONE      ctermfg=NONE     ctermbg=Blue   cterm=bold
@@ -70,7 +69,6 @@ hi Delimiter                      guifg=#FF9600   guibg=NONE  gui=NONE        ct
 hi Operator                       guifg=NONE      guibg=NONE  gui=NONE        ctermfg=NONE     ctermbg=NONE   cterm=NONE
 hi Underlined                     guifg=NONE      guibg=NONE  gui=underline   ctermfg=NONE     ctermbg=NONE   cterm=NONE
 hi SpellBad                       guifg=NONE      guibg=NONE  gui=undercurl   ctermfg=NONE     ctermbg=NONE   cterm=underline guisp=Magenta
-
 
 
 " Language Specific Overrides
@@ -112,7 +110,7 @@ hi htmlTag                        guifg=#999999   guibg=NONE  gui=NONE        ct
 hi htmlEndTag                     guifg=#999999   guibg=NONE  gui=NONE        ctermfg=Gray     ctermbg=NONE   cterm=bold
 hi htmlTagName                    guifg=#96CDFF   guibg=NONE  gui=NONE        ctermfg=Blue     ctermbg=NONE   cterm=bold
 hi htmlLink                       guifg=#00FFFF   guibg=NONE  gui=underline   ctermfg=Magenta  ctermbg=NONE   cterm=NONE
-hi htmlArg                        guifg=#FFCD00   guibg=NONE  gui=NONE        ctermfg=Yellow    ctermbg=NONE   cterm=bold
+hi htmlArg                        guifg=#FFCD00   guibg=NONE  gui=NONE        ctermfg=Yellow   ctermbg=NONE   cterm=bold
 hi htmlSpecialChar                guifg=#FF0000   guibg=NONE  gui=NONE        ctermfg=Red      ctermbg=NONE   cterm=NONE
 hi htmlItalic                     guifg=NONE      guibg=NONE  gui=italic      ctermfg=NONE     ctermbg=NONE   cterm=NONE
 hi htmlBold                       guifg=NONE      guibg=NONE  gui=bold        ctermfg=NONE     ctermbg=NONE   cterm=NONE
@@ -128,7 +126,7 @@ hi cssURL                         guifg=#00FFFF   guibg=NONE  gui=underline   ct
 hi cssFunctionName                guifg=#0080FF   guibg=NONE  gui=NONE        ctermfg=Blue     ctermbg=NONE   cterm=NONE
 hi cssColor                       guifg=#FFCD00   guibg=NONE  gui=NONE        ctermfg=Yellow   ctermbg=NONE   cterm=bold
 hi cssPseudoClassId               guifg=#FF9600   guibg=NONE  gui=NONE        ctermfg=Brown    ctermbg=NONE   cterm=NONE
-hi cssClassName                   guifg=#FFCD00   guibg=NONE  gui=NONE        ctermfg=Yellow    ctermbg=NONE  cterm=bold
+hi cssClassName                   guifg=#FFCD00   guibg=NONE  gui=NONE        ctermfg=Yellow   ctermbg=NONE   cterm=bold
 hi cssValueLength                 guifg=#999999   guibg=NONE  gui=NONE        ctermfg=Gray     ctermbg=NONE   cterm=bold
 hi cssImportant                   guifg=#0080FF   guibg=NONE  gui=NONE        ctermfg=Blue     ctermbg=NONE   cterm=NONE
 hi cssStringQQ                    guifg=#3D9C00   guibg=NONE  gui=italic      ctermfg=Green    ctermbg=NONE   cterm=NONE
@@ -163,4 +161,13 @@ hi yamlKey                        guifg=#96CDFF   guibg=NONE  gui=NONE        ct
 hi yamlAnchor                     guifg=#999999   guibg=NONE  gui=NONE        ctermfg=Gray     ctermbg=NONE   cterm=bold
 hi yamlAlias                      guifg=#999999   guibg=NONE  gui=NONE        ctermfg=Gray     ctermbg=NONE   cterm=bold
 hi yamlDocumentHeader             guifg=#96CDFF   guibg=NONE  gui=italic      ctermfg=Blue     ctermbg=NONE   cterm=bold
+
+hi xmlTag                        guifg=#999999   guibg=NONE  gui=NONE        ctermfg=Gray     ctermbg=NONE   cterm=bold
+hi xmllEndTag                    guifg=#999999   guibg=NONE  gui=NONE        ctermfg=Gray     ctermbg=NONE   cterm=bold
+hi xmlTagName                    guifg=#96CDFF   guibg=NONE  gui=NONE        ctermfg=Blue     ctermbg=NONE   cterm=bold
+hi xmlAttrib                     guifg=#FFCD00   guibg=NONE  gui=NONE        ctermfg=Yellow   ctermbg=NONE   cterm=bold
+hi xmlAttribPunct                guifg=#FFCD00   guibg=NONE  gui=NONE        ctermfg=Yellow   ctermbg=NONE   cterm=bold
+hi xmlCdataStart                 guifg=#FF9600   guibg=NONE  gui=NONE        ctermfg=Brown    ctermbg=NONE   cterm=NONE
+hi xmlCdataEnd                   guifg=#FF9600   guibg=NONE  gui=NONE        ctermfg=Brown    ctermbg=NONE   cterm=NONE
+hi xmlCdataCdata                 guifg=#0080FF   guibg=NONE  gui=NONE        ctermfg=Blue     ctermbg=NONE   cterm=NONE
 
