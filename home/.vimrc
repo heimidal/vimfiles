@@ -216,6 +216,7 @@ au! BufWritePost *.snippets call ReloadAllSnippets()
 au BufRead,BufNewFile *.scss set filetype=scss
 au BufNewFile,BufRead *.m*down set filetype=markdown
 au BufRead,BufNewFile *.as set filetype=actionscript
+au BufRead,BufNewFile *.json set filetype=json
 
 " GUI Specific settings
 if has('gui_running')
