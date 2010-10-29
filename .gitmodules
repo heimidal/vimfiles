@@ -97,3 +97,21 @@
 [submodule "home/.vim/bundle/vim-unimpaired"]
 	path = home/.vim/bundle/vim-unimpaired
 	url = http://github.com/tpope/vim-unimpaired.git
+[submodule "home/.vim/bundle/actionscript.vim"]
+	path = home/.vim/bundle/actionscript.vim
+	url = http://github.com/vim-scripts/actionscript.vim--Leider.git
+[submodule "home/.vim/bundle/applescript.vim"]
+	path = home/.vim/bundle/applescript.vim
+	url = http://github.com/vim-scripts/applescript.vim.git
+[submodule "home/.vim/bundle/json.vim"]
+	path = home/.vim/bundle/json.vim
+	url = http://github.com/vim-scripts/JSON.vim.git
+[submodule "home/.vim/bundle/processing.vim"]
+	path = home/.vim/bundle/processing.vim
+	url = http://github.com/vim-scripts/Processing.git
+[submodule "home/.vim/bundle/vim-speeddating"]
+	path = home/.vim/bundle/vim-speeddating
+	url = http://github.com/tpope/vim-speeddating.git
+[submodule "home/.vim/bundle/argtextobj.vim"]
+	path = home/.vim/bundle/argtextobj.vim
+	url = http://github.com/vim-scripts/argtextobj.vim.git
