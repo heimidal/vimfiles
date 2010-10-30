@@ -62,7 +62,8 @@ set gdefault
 set grepprg=ack
 runtime macros/matchit.vim
 
-let mapleader = ","
+
+let mapleader = ','
 
 command! -nargs=* Wrap set wrap linebreak nolist
 
@@ -83,7 +84,7 @@ if has('gui_running')
   set go-=L
   set go-=r
   set go-=R
-  if has("gui_macvim")
+  if has('gui_macvim')
     set transparency=15
     macmenu &File.New\ Tab key=<nop>
   end
@@ -112,6 +113,12 @@ let g:MarkdownPreviewUserStyles=$HOME.'/Sites/themes/css-markdown/'
 let g:RefreshRunningBrowserDefault = 'chrome'
 let g:NodelintConfig = $HOME.'/.vim/syntax_checkers/compilers/nodelint-config/nodelint-config.js'
 let g:snips_author = 'Matthew Kitt'
+let g:acp_enableAtStartup = 0
+
+" Popup menu behavior and supertab
+set completeopt=longest,menuone
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+let g:SuperTabLongestHighlight = 1
 
 " Key mapping
 " -----------------------------------------------------------------------------
