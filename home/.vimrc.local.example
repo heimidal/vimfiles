@@ -1,0 +1,33 @@
+
+" Loaded after .vimrc, so anything in here will override the .vimrc settings
+" This is an example file meant to be replaced as .vimrc.local
+" This file should contain settings used for a specific user's environment
+
+" User preferences
+" -----------------------------------------------------------------------------
+
+
+" User themes and GUI settings
+" -----------------------------------------------------------------------------
+
+
+" User plugin configurations
+" -----------------------------------------------------------------------------
+" let g:yankring_history_dir=$HOME.'/.vim/tmp/yankring/'
+" let g:MarkdownPreviewUserStyles=$HOME.'/Sites/themes/css-markdown/'
+" let g:RefreshRunningBrowserDefault = 'chrome'
+" let g:NodelintConfig = $HOME.'/.vim/syntax_checkers/compilers/nodelint-config/nodelint-config.js'
+" let g:snips_author = 'Matthew Kitt'
+
+
+" User key mapping
+" -----------------------------------------------------------------------------
+
+
+" User leader mapping
+" -----------------------------------------------------------------------------
+
+
+" User event handling
+" -----------------------------------------------------------------------------
+

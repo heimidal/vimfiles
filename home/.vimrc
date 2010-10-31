@@ -86,6 +86,7 @@ if has('gui_running')
   set go-=R
   if has('gui_macvim')
     set transparency=15
+    set fuoptions=maxhorz,maxvert
     macmenu &File.New\ Tab key=<nop>
   end
 endif
@@ -106,13 +107,9 @@ endif
 " -----------------------------------------------------------------------------
 let NERDSpaceDelims=1
 let NERDTreeIgnore=['.DS_Store']
-let g:yankring_history_dir=$HOME.'/.vim/tmp/yankring/'
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
-let g:MarkdownPreviewUserStyles=$HOME.'/Sites/themes/css-markdown/'
-let g:RefreshRunningBrowserDefault = 'chrome'
-let g:NodelintConfig = $HOME.'/.vim/syntax_checkers/compilers/nodelint-config/nodelint-config.js'
-let g:snips_author = 'Matthew Kitt'
+let g:CommandTMaxHeight=20
 let g:acp_enableAtStartup = 0
 
 " Popup menu behavior and supertab
@@ -205,6 +202,9 @@ map <leader>v V`]
 " Toggle spelling hints
 nmap <silent> <leader>z :set spell!<cr>
 
+" Reload ctags
+map <leader>rt :!ctags --extra=+f -R *<cr><cr>
+
 
 " Event handling
 " -----------------------------------------------------------------------------
@@ -233,4 +233,11 @@ endif
 
 " Enable autosave
 au FocusLost * :wa
+
+
+" Load up the user's local .vimrc config
+" -----------------------------------------------------------------------------
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
 

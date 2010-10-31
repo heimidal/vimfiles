@@ -10,3 +10,4 @@
 .netrwhist
 tmp/
 tags/
+.vimrc.local

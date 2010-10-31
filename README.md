@@ -11,6 +11,7 @@ Basic setup instructions to get the party started:
 - Either build from source or snag a download, make sure it's built with all of the correct interpreters (check the [MacVim wiki][mvim-wiki] for more information)
 - Install [homesick][homesick]: `gem install homesick`
 - Run `homesick clone git://github.com/mkitt/vimfiles.git` to clone the repository
+- Copy and Paste `.vimrc.local.example` to `.vimrc.local` and tweak the settings to your needs
 - Symlink `homesick symlink vimfiles` to create the necessary dot files within the `~/` directory
 - Move to the homesick directory`cd ~/.homesick/repos/vimfiles/`
 - Run `git submodule init`
@@ -47,6 +48,8 @@ As a reminder to update the configuration do the following:
 
 
 ## Custom Configurations
+
+Within the configuration there is a file `.vimrc.local`, this stores local configurations based on the machine running it. Anything in here overrides properties set in `.vimrc`. This is setup for easy forking of the project.
 
 Most of the custom configurations come from the submodules within `.vim/bundle`. Highly suggest [taking a look at these][bundles] and their help docs to see what they do and how they work. Custom settings are applied in `.vimrc`, so take a look at that as well.
 
