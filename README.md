@@ -135,7 +135,6 @@ The following should be completed shortly:
 - Dial in ActionScript work flow and snippets (put the final nail in the coffin for TextMate and Eclipse)
 - Upgrade MacVim to the lastest snapshot
 - Vim Cheat Sheet for my settings
-- Move User specific settings to an ignored after file or a plugin?
 - Further additions to .vimrc for language settings from DP and GV
 - Create the snowblind, octocat, and coronaburn themes
 
