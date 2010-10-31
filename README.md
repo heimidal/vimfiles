@@ -1,16 +1,23 @@
 # Vim Configuration
 
-My configuration files for Vim. Tuned to play nice with MacVim. Setup using homesick for symlinkin' goodness.
+My configuration files for Vim. Tuned to play nice with [MacVim][macvim]. Setup using [homesick][homesick] for that symlinkn' goodness.
 
 
 ## Installation Notes
 
-Add some info about installing and/or forking..
+Basic setup instructions to get the party started:
 
+1. Install the latest snapshot of [MacVim][macvim]
+- Either build from source or snag a download, make sure it's built with all of the correct interpreters (check the [MacVim wiki][mvim-wiki] for more information)
+- Install [homesick][homesick]: `gem install homesick`
+- Run `homesick clone git://github.com/mkitt/vimfiles.git` to clone the repository
+- Symlink `homesick symlink vimfiles` to create the necessary dot files within the `~/` directory
+- Move to the homesick directory`cd ~/.homesick/repos/vimfiles/`
+- Run `git submodule init`
+- Run `git submodule update`
+- Run `bash update`
 
-## Custom Configurations
-
-Add info about nodelint, markdown, snipmate and other specific customizations..
+You should now be ready to get down to business.
 
 
 ## Updating The Configuration
@@ -39,29 +46,51 @@ As a reminder to update the configuration do the following:
     gitx
 
 
+## Custom Configurations
+
+Most of the custom configurations come from the submodules within `.vim/bundle`. Highly suggest [taking a look at these][bundles] and their help docs to see what they do and how they work. Custom settings are applied in `.vimrc`, so take a look at that as well.
+
+The configuration is rolling it's own fork of [snipmate.vim][snipmate] primarily to change some of the key commands that invoke a snippet. There has been quite a few additions to the snippets, mainly ported from TextMate and a bunch of new ones added. Snippets are your friend, check them out and use them wisely.
+
+The configuration uses [syntastic][syntastic] quite heavily, most of it is out of the box. The one difference deals with JavaScript. 
+
+The JavaScript syntax checker runs off of [nodelint][nodelint] ([node][node] + [JSLint][jslint]) instead of jsl. The submodule to [nodelint][nodelint] is under `.vim/syntax_checkers/compilers/`. Also under this directory is [nodelint-config][nodelint-config]. This is the default global settings for all JavaScript files. It's possible, with a global variable, to override this location. In your `.vimrc` file.
+
+`let g:NodelintConfig = 'path/to/your/config.js'` 
+
+This will override the one in `.vim/syntax_checkers/compilers/nodelint-config`. There is one more level of overriding you can perform, and this is at the project level. At the root level of your project, stick a file in there with the name `nodelint-config.js` and add the settings required by your project. In order for this to work, within Vim, you'll need to set the project root directory as the `cwd` for the Vim session.
+
+
 ## Editor Themes
 
-Add some info about the themes..
+Themes included with this configuration:
+
+1. `colorblind`: Black background, super vibrant colors
+- `snowblind`: White background, vibrant colors (*Not yet included*)
+- `octocat`: Loosely based on the github syntax theme (*Not yet included*)
+- `coronaburn`: Similar to colorblind but with muted colors (*Not yet included*)
+
+The color themes have been designed with similarities in the syntax settings. Jumping between multiple languages should be easy on the mind and the eyes. Be adventurous and mix it up once in a while.
 
 
-## Submodules ##
+## Submodules 
 
 A few notes for future reference about working with `git submodules` taken from [cheat sheets][cheat-sheets].
 
 
-### Adding Submodules: ###
+### Adding Submodules: 
 
     git submodule add <remote_repository> <path/to/submodule>
     git submodule init
     git submodule update
 
 
-### Updating Submodules ###
+### Updating Submodules 
 
     git submodule foreach <command>
 
 
-### Removing Submodules ###
+### Removing Submodules 
 
    1. Delete the relevant line from the `.gitmodules` file
    2. Delete the relevant section from `.git/config`
@@ -95,19 +124,20 @@ Then whenever you make changes to the submodule:
 This allows you to make changes directly in your submodule, see the effects and push the changes back without maintaining multiple repositories and linking them back and forth. [Defunkt][defunkt] has a good article about [working with submodules][defunkt-subs].
 
 
-## Todo
+## Todo Roadmap
 
 The following should be completed shortly:
 
 - Dial in Objective C work flow as a replacement for Xcode
 - Dial in ActionScript work flow and snippets (put the final nail in the coffin for TextMate and Eclipse)
+- Upgrade MacVim to the lastest snapshot
 - Vim Cheat Sheet for my settings
 - Move User specific settings to an ignored after file or a plugin?
 - Further additions to .vimrc for language settings from DP and GV
-- Create the snowblind, greyblind and sunblind themes
+- Create the snowblind, octocat, and coronaburn themes
 
 
-## License and Contributions ##
+## License and Contributions 
 
 All licensing for the Bundles/Plugins should be found in their respective repositories. Anything written by me is of course open source through MIT. While contributions are welcome, you're probably better off forking and tuning it to your own machine.
 
@@ -134,6 +164,16 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
 OTHER DEALINGS IN THE SOFTWARE.
 
+[macvim]: http://github.com/b4winckler/macvim
+[mvim-wiki]: http://github.com/b4winckler/macvim/wiki
+[homesick]: http://github.com/technicalpickles/homesick
+[snipmate]: http://github.com/mkitt/snipmate.vim
+[syntastic]: http://github.com/scrooloose/syntastic
+[node]: http://nodejs.org/
+[jslint]: http://www.jslint.com/lint.html
+[nodelint]: http://github.com/tav/nodelint
+[nodelint-config]: http://github.com/mkitt/nodelint-config
+[bundles]: http://github.com/mkitt/vimfiles/tree/master/home/.vim/bundle/
 [cheat-sheets]: http://cheat.errtheblog.com/s/git
 [defunkt]: http://github.com/defunkt
 [defunkt-subs]: http://github.com/guides/developing-with-submodules
