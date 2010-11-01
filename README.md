@@ -7,9 +7,9 @@ My configuration files for Vim. Tuned to play nice with [MacVim][macvim]. Setup 
 
 Basic setup instructions to get the party started:
 
-1. Install the latest snapshot of [MacVim][macvim]
-- Either build from source or snag a download, make sure it's built with all of the correct interpreters (check the [MacVim wiki][mvim-wiki] for more information)
-- Install [homesick][homesick]: `gem install homesick`
+1. Install the latest snapshot of [MacVim][macvim] using [homebrew][homebrew] `brew install macvim`
+- [Homebrew][homebrew] will also install the command line link as `mvim` which will open the editor from Terminal
+- Install [homesick][homesick] `gem install homesick`
 - Run `homesick clone git://github.com/mkitt/vimfiles.git` to clone the repository
 - Copy and Paste `.vimrc.local.example` to `.vimrc.local` and tweak the settings to your needs
 - Symlink `homesick symlink vimfiles` to create the necessary dot files within the `~/` directory
@@ -17,6 +17,10 @@ Basic setup instructions to get the party started:
 - Run `git submodule init`
 - Run `git submodule update`
 - Run `bash update`
+- Launch [MacVim][macvim] from Terminal by typing `mvim` and hitting enter
+- Right click the logo in your dock and select `Options > Show in Finder`
+- Create an alias of `MacVim.app` and drop it in the `/Applications/` directory (this will allow it to be found by Spotlight)
+- Optionally choose to keep the icon in your dock `Options > Keep in Dock`
 
 You should now be ready to get down to business.
 
@@ -133,7 +137,6 @@ The following should be completed shortly:
 
 - Dial in Objective C work flow as a replacement for Xcode
 - Dial in ActionScript work flow and snippets (put the final nail in the coffin for TextMate and Eclipse)
-- Upgrade MacVim to the lastest snapshot
 - Vim Cheat Sheet for my settings
 - Further additions to .vimrc for language settings from DP and GV
 - Create the snowblind, octocat, and coronaburn themes
@@ -166,8 +169,8 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
 OTHER DEALINGS IN THE SOFTWARE.
 
-[macvim]: http://github.com/b4winckler/macvim
-[mvim-wiki]: http://github.com/b4winckler/macvim/wiki
+[macvim]: http://code.google.com/p/macvim/
+[homebrew]: http://github.com/mxcl/homebrew
 [homesick]: http://github.com/technicalpickles/homesick
 [snipmate]: http://github.com/mkitt/snipmate.vim
 [syntastic]: http://github.com/scrooloose/syntastic
